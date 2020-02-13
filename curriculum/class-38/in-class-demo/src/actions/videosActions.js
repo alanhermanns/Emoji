@@ -4,6 +4,7 @@ export const addVideo = id => ({
   payload: id
 });
 
+// Plain Old Java[Script] Object
 export const DELETE_VIDEO = 'DELETE_VIDEO';
 export const deleteVideo = id => ({
   type: DELETE_VIDEO,

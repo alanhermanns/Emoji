@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useAddVideo } from '../../hooks/videos';
 
-const VideoForm = ({ submitVideoId }) => {
+const VideoForm = () => {
+  const addVideo = useAddVideo();
   const [videoId, setVideoId] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
-    submitVideoId(videoId);
+    addVideo(videoId);
     setVideoId('');
   };
 
@@ -16,10 +17,6 @@ const VideoForm = ({ submitVideoId }) => {
       <button>Submit</button>
     </form>
   );
-};
-
-VideoForm.propTypes = {
-  submitVideoId: PropTypes.func.isRequired
 };
 
 export default VideoForm;

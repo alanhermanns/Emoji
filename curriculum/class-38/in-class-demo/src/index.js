@@ -1,8 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
+import { VideosProvider } from './hooks/videos';
 
 render(
-  <App />,
+  <VideosProvider>
+    <App />
+  </VideosProvider>,
   document.getElementById('root')
 );
