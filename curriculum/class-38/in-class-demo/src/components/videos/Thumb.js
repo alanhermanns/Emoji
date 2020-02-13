@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDeleteVideo } from '../../hooks/videos';
 
-const Thumb = ({ thumbnailUrl, onDeleteVideo }) => (
-  <>
-    <img src={thumbnailUrl} />
-    <button onClick={event => {
-      event.preventDefault();
-      onDeleteVideo();
-    }}>🗑️</button>
-  </>
-);
+const Thumb = ({ videoId, thumbnailUrl }) => {
+  const deleteVideo = useDeleteVideo();
+
+  return (
+    <>
+      <img src={thumbnailUrl} />
+      <button onClick={event => {
+        event.preventDefault();
+        deleteVideo(videoId);
+      }}>🗑️</button>
+    </>
+  );
+};
 
 Thumb.propTypes = {
-  thumbnailUrl: PropTypes.string.isRequired,
-  onDeleteVideo: PropTypes.func.isRequired
+  videoId: PropTypes.string.isRequired,
+  thumbnailUrl: PropTypes.string.isRequired
 };
 
 export default Thumb;

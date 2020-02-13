@@ -1,11 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
-import { VideosProvider } from './hooks/videos';
+import { Provider } from 'react-redux';
+import store from './store';
 
 render(
-  <VideosProvider>
+  <Provider store={store}>
     <App />
-  </VideosProvider>,
+  </Provider>,
   document.getElementById('root')
 );
