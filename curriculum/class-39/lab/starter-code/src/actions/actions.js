@@ -11,6 +11,6 @@ export const takeNap = () => ({
   type: TAKE_NAP
 });
 export const STUDY = 'STUDY';
-export const study = ({
+export const study = () => ({
   type: STUDY
 });
