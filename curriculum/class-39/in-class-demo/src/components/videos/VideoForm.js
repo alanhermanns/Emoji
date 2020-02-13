@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useAddVideo } from '../../hooks/videos';
+import { useDispatch } from 'react-redux';
+import { addVideo } from '../../actions/videoActions';
 
 const VideoForm = () => {
-  const addVideo = useAddVideo();
   const [videoId, setVideoId] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    addVideo(videoId);
-    setVideoId('');
+    dispatch(addVideo(videoId));
   };
 
   return (
